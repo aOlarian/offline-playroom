@@ -5,7 +5,7 @@
 We build and deploy a paid Enterprise edition to order. Examples of what we can develop and extend for your organization are listed below.
 
 - Central control for distributing activity packs across schools and managed devices.
-- Teacher, student and administrator roles with classroom progress reporting.
+- Teacher, student and administrator roles, classroom progress reports and integration with school learning platforms.
 - Custom browser multiplayer and hosted worlds for schools, events or private communities.
 
 For an Enterprise edition or custom development, contact us at [verobots.eu](https://verobots.eu/) or [olarian.com](https://olarian.com/).

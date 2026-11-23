@@ -1,4 +1,4 @@
-const VERSION = 'v0.1.2';
+const VERSION = 'v0.1.3';
 const SCOPE = self.registration.scope;
 const CACHE_PREFIX = `offline-playroom:${SCOPE}:`;
 const CACHE_NAME = CACHE_PREFIX + VERSION;
