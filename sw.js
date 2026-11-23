@@ -1,4 +1,4 @@
-const VERSION = 'v0.1.0';
+const VERSION = 'v0.1.1';
 const SCOPE = self.registration.scope;
 const CACHE_PREFIX = `offline-playroom:${SCOPE}:`;
 const CACHE_NAME = CACHE_PREFIX + VERSION;
@@ -75,10 +75,6 @@ self.addEventListener('message', (event) => {
   }
 });
 
-// Network-first pe cod (HTML/CSS/JS): online iei mereu ultima versiune, offline
-// cazi pe cache. Cache-first doar pe assets binare, care nu se schimba.
-const isCode = (url) => /\.(html|css|js|webmanifest|json)$/.test(url.pathname) || url.href === SCOPE;
-
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
@@ -86,33 +82,17 @@ self.addEventListener('fetch', (event) => {
   if (!url.href.startsWith(SCOPE)) return;
   const key = new Request(url.origin + url.pathname);
 
-  if (isCode(url)) {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
-          if (res && res.status === 200) {
-            const copy = res.clone();
-            caches.open(CACHE_NAME).then((c) => c.put(key, copy));
-          }
-          return res;
-        })
-        .catch(() =>
-          caches.open(CACHE_NAME).then((cache) => cache.match(key)).then((c) => c || (req.mode === 'navigate' ? caches.match(new URL('index.html', SCOPE)) : Response.error()))
-        )
-    );
-    return;
-  }
-
-  event.respondWith(
-    caches.match(req).then((cached) =>
-      cached ||
-      fetch(req).then((res) => {
-        if (res && res.status === 200 && res.type === 'basic') {
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then((c) => c.put(req, copy));
-        }
-        return res;
-      })
-    )
-  );
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(key);
+    if (cached) return cached;
+    try {
+      const response = await fetch(req);
+      if (response.ok && response.type === 'basic') await cache.put(key, response.clone());
+      return response;
+    } catch {
+      if (req.mode !== 'navigate') return Response.error();
+      return await cache.match(new URL('index.html', SCOPE).href) || Response.error();
+    }
+  })());
 });

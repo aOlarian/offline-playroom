@@ -10,36 +10,11 @@
   <meta name="description" content="Platformă PWA de jocuri distractive care pot fi jucate offline">
   <title>Offline Playroom 🚀 Jocuri Offline</title>
   
-  <link rel="manifest" href="./manifest.webmanifest?v=v0.1.0">
-  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg?v=v0.1.0">
-  <link rel="apple-touch-icon" href="./assets/icon-192.png?v=v0.1.0">
-  <link rel="stylesheet" href="./css/style.css?v=v0.1.0">
+  <link rel="manifest" href="./manifest.webmanifest?v=v0.1.1">
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg?v=v0.1.1">
+  <link rel="apple-touch-icon" href="./assets/icon-192.png?v=v0.1.1">
+  <link rel="stylesheet" href="./css/style.css?v=v0.1.1">
 
-  <script>
-  // Auto-reparare: daca CSS-ul incarcat nu e cel al versiunii curente (service worker
-  // sau cache HTTP blocat pe o versiune veche), curatam tot si reincarcam o singura data.
-  (function () {
-    var BUILD = 'v0.1.0';
-    window.addEventListener('DOMContentLoaded', function () {
-      var live = getComputedStyle(document.documentElement).getPropertyValue('--build').trim().replace(/^["']|["']$/g, '');
-      if (live === BUILD) { sessionStorage.removeItem('dg_repaired'); return; }
-      if (sessionStorage.getItem('dg_repaired')) { return; }
-      sessionStorage.setItem('dg_repaired', '1');
-      var jobs = [];
-      if ('serviceWorker' in navigator) {
-        jobs.push(navigator.serviceWorker.getRegistrations().then(function (rs) {
-          return Promise.all(rs.map(function (r) { return r.unregister(); }));
-        }));
-      }
-      if (window.caches) {
-        jobs.push(caches.keys().then(function (ks) {
-          return Promise.all(ks.map(function (k) { return caches.delete(k); }));
-        }));
-      }
-      Promise.all(jobs).catch(function () {}).then(function () { location.reload(); });
-    });
-  })();
-  </script>
 </head>
 <body>
   <!-- Twinkling stars background -->
@@ -295,42 +270,42 @@
   <canvas id="confetti-canvas"></canvas>
 
   <!-- Core Scripts -->
-  <script src="./js/audio.js?v=v0.1.0"></script>
-  <script src="./js/voice.js?v=v0.1.0"></script>
-  <script src="./js/progress.js?v=v0.1.0"></script>
-  <script src="./js/settings.js?v=v0.1.0"></script>
-  <script src="./js/controls.js?v=v0.1.0"></script>
-  <script src="./js/hub.js?v=v0.1.0"></script>
-  <script src="./js/pwa.js?v=v0.1.0"></script>
+  <script src="./js/audio.js?v=v0.1.1"></script>
+  <script src="./js/voice.js?v=v0.1.1"></script>
+  <script src="./js/progress.js?v=v0.1.1"></script>
+  <script src="./js/settings.js?v=v0.1.1"></script>
+  <script src="./js/controls.js?v=v0.1.1"></script>
+  <script src="./js/hub.js?v=v0.1.1"></script>
+  <script src="./js/pwa.js?v=v0.1.1"></script>
 
   <!-- Game Modules -->
-  <script src="./js/games/balloons.js?v=v0.1.0"></script>
-  <script src="./js/games/puzzle.js?v=v0.1.0"></script>
-  <script src="./js/games/dots.js?v=v0.1.0"></script>
-  <script src="./js/games/sushichop.js?v=v0.1.0"></script>
-  <script src="./js/games/shooting.js?v=v0.1.0"></script>
-  <script src="./js/games/drawing.js?v=v0.1.0"></script>
-  <script src="./js/games/jetpack.js?v=v0.1.0"></script>
-  <script src="./js/games/numbers.js?v=v0.1.0"></script>
-  <script src="./js/games/fourinline.js?v=v0.1.0"></script>
-  <script src="./js/games/findit.js?v=v0.1.0"></script>
-  <script src="./js/games/basket.js?v=v0.1.0"></script>
-  <script src="./js/games/mole.js?v=v0.1.0"></script>
-  <script src="./js/games/golf.js?v=v0.1.0"></script>
-  <script src="./js/games/maze.js?v=v0.1.0"></script>
-  <script src="./js/games/memory.js?v=v0.1.0"></script>
-  <script src="./js/games/race.js?v=v0.1.0"></script>
-  <script src="./js/games/snake.js?v=v0.1.0"></script>
-  <script src="./js/games/billiard.js?v=v0.1.0"></script>
-  <script src="./js/games/bubble.js?v=v0.1.0"></script>
-  <script src="./js/games/candies.js?v=v0.1.0"></script>
-  <script src="./js/games/game2048.js?v=v0.1.0"></script>
-  <script src="./js/games/fishing.js?v=v0.1.0"></script>
-  <script src="./js/games/slider.js?v=v0.1.0"></script>
-  <script src="./js/games/sort.js?v=v0.1.0"></script>
-  <script src="./js/games/shadows.js?v=v0.1.0"></script>
-  <script src="./js/games/runner.js?v=v0.1.0"></script>
-  <script src="./js/games/coloring.js?v=v0.1.0"></script>
-  <script src="./js/games/pinball.js?v=v0.1.0"></script>
+  <script src="./js/games/balloons.js?v=v0.1.1"></script>
+  <script src="./js/games/puzzle.js?v=v0.1.1"></script>
+  <script src="./js/games/dots.js?v=v0.1.1"></script>
+  <script src="./js/games/sushichop.js?v=v0.1.1"></script>
+  <script src="./js/games/shooting.js?v=v0.1.1"></script>
+  <script src="./js/games/drawing.js?v=v0.1.1"></script>
+  <script src="./js/games/jetpack.js?v=v0.1.1"></script>
+  <script src="./js/games/numbers.js?v=v0.1.1"></script>
+  <script src="./js/games/fourinline.js?v=v0.1.1"></script>
+  <script src="./js/games/findit.js?v=v0.1.1"></script>
+  <script src="./js/games/basket.js?v=v0.1.1"></script>
+  <script src="./js/games/mole.js?v=v0.1.1"></script>
+  <script src="./js/games/golf.js?v=v0.1.1"></script>
+  <script src="./js/games/maze.js?v=v0.1.1"></script>
+  <script src="./js/games/memory.js?v=v0.1.1"></script>
+  <script src="./js/games/race.js?v=v0.1.1"></script>
+  <script src="./js/games/snake.js?v=v0.1.1"></script>
+  <script src="./js/games/billiard.js?v=v0.1.1"></script>
+  <script src="./js/games/bubble.js?v=v0.1.1"></script>
+  <script src="./js/games/candies.js?v=v0.1.1"></script>
+  <script src="./js/games/game2048.js?v=v0.1.1"></script>
+  <script src="./js/games/fishing.js?v=v0.1.1"></script>
+  <script src="./js/games/slider.js?v=v0.1.1"></script>
+  <script src="./js/games/sort.js?v=v0.1.1"></script>
+  <script src="./js/games/shadows.js?v=v0.1.1"></script>
+  <script src="./js/games/runner.js?v=v0.1.1"></script>
+  <script src="./js/games/coloring.js?v=v0.1.1"></script>
+  <script src="./js/games/pinball.js?v=v0.1.1"></script>
 </body>
 </html>

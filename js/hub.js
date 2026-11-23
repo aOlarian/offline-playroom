@@ -7,6 +7,7 @@ class HubController {
     this.currentView = 'hub-view';
     this.currentGame = null;
     this.currentGameId = null;
+    this.pendingLaunch = null;
     this.games = {};
     this.totalStars = parseInt(localStorage.getItem('offline_playroom_stars') || '0', 10);
     this.selectedAvatar = localStorage.getItem('offline_playroom_avatar') || '🚀';
@@ -200,11 +201,17 @@ class HubController {
     const canvas = document.getElementById('game-canvas');
     if (canvas && typeof game.init === 'function') {
       if (window.playroomControls) window.playroomControls.touchFeedback(canvas);
-      setTimeout(() => game.init(canvas), 50);
+      clearTimeout(this.pendingLaunch);
+      this.pendingLaunch = setTimeout(() => {
+        this.pendingLaunch = null;
+        game.init(canvas);
+      }, 50);
     }
   }
 
   exitGame() {
+    clearTimeout(this.pendingLaunch);
+    this.pendingLaunch = null;
     window.soundManager.playClick();
     window.voice.stop();
     if (this.currentGame && typeof this.currentGame.stop === 'function') {
