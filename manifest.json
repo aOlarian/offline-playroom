@@ -1,0 +1,36 @@
+{
+  "name": "Offline Playroom — Jocuri Offline",
+  "short_name": "Offline Playroom",
+  "description": "Jocuri de logică, îndemânare și desen, disponibile offline.",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#181534",
+  "theme_color": "#8b5cf6",
+  "categories": [
+    "games",
+    "kids",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "scope": "./"
+}
