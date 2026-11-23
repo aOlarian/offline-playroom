@@ -307,5 +307,15 @@
   <script src="./js/games/runner.js?v=v0.1.1"></script>
   <script src="./js/games/coloring.js?v=v0.1.1"></script>
   <script src="./js/games/pinball.js?v=v0.1.1"></script>
+<style>
+  #enterprise-intro { width: min(38rem, calc(100vw - 2rem)); max-height: 90vh; padding: 1.4rem; border-radius: 1rem; border: 1px solid #68768b; background: Canvas; color: CanvasText; }
+  #enterprise-intro::backdrop { background: #142138a8; }
+  #enterprise-intro ul { padding-inline-start: 1.3rem; margin-block: .75rem; }
+  #enterprise-intro li + li { margin-block-start: .5rem; }
+  #enterprise-intro a { color: LinkText; text-decoration: underline; }
+  #enterprise-intro form { text-align: right; margin-block-start: 1.25rem; }
+</style>
+<dialog id="enterprise-intro" aria-labelledby="enterprise-heading"><h2 id="enterprise-heading">Offline Playroom Enterprise</h2><p>We build and deploy a paid Enterprise edition to order. Examples of what we can develop and extend for your organization are listed below.</p><ul><li>Central control for distributing activity packs across schools and managed devices.</li><li>Teacher, student and administrator roles with classroom progress reporting.</li><li>Custom browser multiplayer and hosted worlds for schools, events or private communities.</li></ul><p>For an Enterprise edition or custom development, contact us at <a href="https://verobots.eu/" target="_blank" rel="noopener noreferrer">verobots.eu</a> or <a href="https://olarian.com/" target="_blank" rel="noopener noreferrer">olarian.com</a>.</p><form method="dialog"><button type="submit" autofocus>Continue</button></form></dialog>
+<script type="module" src="./js/enterprise.js"></script>
 </body>
 </html>

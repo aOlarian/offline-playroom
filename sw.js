@@ -1,4 +1,4 @@
-const VERSION = 'v0.1.1';
+const VERSION = 'v0.1.2';
 const SCOPE = self.registration.scope;
 const CACHE_PREFIX = `offline-playroom:${SCOPE}:`;
 const CACHE_NAME = CACHE_PREFIX + VERSION;
@@ -16,6 +16,7 @@ const ASSETS = [
   '/js/controls.js',
   '/js/hub.js',
   '/js/pwa.js',
+  '/js/enterprise.js',
   '/js/games/balloons.js',
   '/js/games/puzzle.js',
   '/js/games/dots.js',

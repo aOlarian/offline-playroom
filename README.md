@@ -1,5 +1,16 @@
 # Offline Playroom
 
+## Enterprise edition
+
+We build and deploy a paid Enterprise edition to order. Examples of what we can develop and extend for your organization are listed below.
+
+- Central control for distributing activity packs across schools and managed devices.
+- Teacher, student and administrator roles with classroom progress reporting.
+- Custom browser multiplayer and hosted worlds for schools, events or private communities.
+
+For an Enterprise edition or custom development, contact us at [verobots.eu](https://verobots.eu/) or [olarian.com](https://olarian.com/).
+
+
 A Romanian-language collection of browser games for touchscreens and keyboards. Pick a puzzle, drawing activity or arcade game. Progress, speed settings and stars are stored in the browser on the current device.
 
 ## Play and install
